@@ -1,0 +1,58 @@
+
+type Mutation {
+     createCustomer (createCustomerRequest : CreateCustomerRequest) : CustomerResponse
+
+     updateCustomer (
+                     customerId : String
+                     updateCustomerRequest : UpdateCustomerRequest) : CustomerResponse
+
+     partiallyUpdateCustomer (customerId : String
+                              partiallyUpdateCustomerRequest : PartiallyUpdateCustomerRequest ) : CustomerResponse
+
+     deleteCustomer (customerId : String) : String
+
+     createPurchaseTransaction(customerId : String
+                               purchaseTransactionRequest : CreatePurchaseTransactionRequest) : PurchaseTransactionResponse
+
+     updatePurchaseTransaction (customerId : String
+                                purchaseTransactionId : String
+                                updatePurchaseTransactionRequest : UpdatePurchaseTransactionRequest) : PurchaseTransactionResponse
+
+     partiallyUpdatePurchaseTransaction (customerId : String
+                                          purchaseTransactionId : String
+                                          partiallyUpdatePurchaseTransactionRequest : PartiallyUpdatePurchaseTransactionRequest) : PurchaseTransactionResponse
+
+     deletePurchaseTransaction (customerId : String
+                                purchaseTransactionId : String) : String
+}
+
+
+input CreateCustomerRequest {
+      fullName : String
+      phoneNumber : String
+      address : String
+}
+
+input UpdateCustomerRequest {
+      fullName : String
+      phoneNumber : String
+      address : String
+}
+
+input PartiallyUpdateCustomerRequest {
+      phoneNumber : String
+}
+
+input CreatePurchaseTransactionRequest {
+      paymentType : String
+      amount : Float
+}
+
+input UpdatePurchaseTransactionRequest {
+      paymentType : String
+      amount : Float
+}
+
+input PartiallyUpdatePurchaseTransactionRequest {
+      amount : Float
+}
