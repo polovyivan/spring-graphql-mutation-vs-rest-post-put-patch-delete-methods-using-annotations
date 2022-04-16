@@ -30,14 +30,6 @@ public record CustomerService(CustomerRepository customerRepository,
         return customerRepository.findAll().stream().map(CustomerResponse::valueOf).collect(Collectors.toList());
     }
 
-    public List<CustomerResponse> getAllCustomersWithFilters() {
-        log.info("Getting all customers... ");
-        return customerRepository.findAll()
-                .stream()
-                .map(CustomerResponse::valueOf)
-                .collect(Collectors.toList());
-    }
-
     public CustomerResponse createCustomer(CreateCustomerRequest createCustomerRequest) {
         log.info("Creating a customer... ");
         CustomerEntity customer = CustomerEntity.valueOf(createCustomerRequest);

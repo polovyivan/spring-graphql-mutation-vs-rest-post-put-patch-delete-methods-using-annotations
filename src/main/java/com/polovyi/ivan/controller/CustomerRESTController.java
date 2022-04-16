@@ -32,7 +32,7 @@ public record CustomerRESTController(CustomerService customerService) {
     @GetMapping(path = "/v1/customers")
     @ResponseStatus(HttpStatus.OK)
     public List<CustomerResponse> getAllCustomers() {
-        return customerService.getAllCustomersWithFilters();
+        return customerService.getAllCustomers();
     }
 
     @PostMapping(path = "/v1/customers")

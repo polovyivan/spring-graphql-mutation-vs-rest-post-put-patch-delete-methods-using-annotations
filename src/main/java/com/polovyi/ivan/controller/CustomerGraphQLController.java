@@ -22,8 +22,8 @@ import java.util.List;
 public record CustomerGraphQLController(CustomerService customerService) {
 
     @QueryMapping(name = "customers")
-    public List<CustomerResponse> getAllCustomersWithFilters() {
-        return customerService.getAllCustomersWithFilters();
+    public List<CustomerResponse> getAllCustomers() {
+        return customerService.getAllCustomers();
     }
 
     @MutationMapping
