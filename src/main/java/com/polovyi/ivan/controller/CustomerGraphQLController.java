@@ -12,6 +12,7 @@ import com.polovyi.ivan.service.CustomerService;
 import org.springframework.graphql.data.method.annotation.Argument;
 import org.springframework.graphql.data.method.annotation.MutationMapping;
 import org.springframework.graphql.data.method.annotation.QueryMapping;
+import org.springframework.graphql.data.method.annotation.SchemaMapping;
 import org.springframework.stereotype.Controller;
 
 import javax.validation.Valid;
@@ -78,7 +79,8 @@ public record CustomerGraphQLController(CustomerService customerService) {
 
     }
 
-    @MutationMapping
+   // @MutationMapping
+    @SchemaMapping(typeName = "Mutation", value = "deletePurchaseTransaction")
     public String deletePurchaseTransaction(
             @Argument @NotNull String customerId,
             @Argument @NotNull String purchaseTransactionId) {

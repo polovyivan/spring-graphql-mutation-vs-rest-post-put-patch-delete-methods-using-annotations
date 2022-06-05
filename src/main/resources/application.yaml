@@ -9,6 +9,8 @@ spring:
     path: /customers-graphql
     schema:
       locations: classpath:graphql/
+    graphiql:
+      enabled: true # Docs can be accessed http://localhost:8001/spring-graphql-mutation-vs-rest-post-put-patch-delete-methods/graphiql
 
   datasource:
     url: jdbc:h2:mem:customerdb
